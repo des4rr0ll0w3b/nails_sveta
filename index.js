@@ -6,28 +6,16 @@ const PORT = process.env.PORT || 3000;
 // Servir archivos estáticos (css, js, img, locales, etc.)
 app.use(express.static(__dirname));
 
-// Rutas principales
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+// Middleware → si la ruta no tiene extensión, intentar servir el .html
+app.get("/:page?", (req, res, next) => {
+  const page = req.params.page || "index";
+  const filePath = path.join(__dirname, `${page}.html`);
+  res.sendFile(filePath, (err) => {
+    if (err) next(); // si no existe, pasa al siguiente middleware
+  });
 });
 
-app.get("/nosotros", (req, res) => {
-  res.sendFile(path.join(__dirname, "nosotros.html"));
-});
-
-app.get("/servicios", (req, res) => {
-  res.sendFile(path.join(__dirname, "servicios.html"));
-});
-
-app.get("/reservas", (req, res) => {
-  res.sendFile(path.join(__dirname, "reservas.html"));
-});
-
-app.get("/contacto", (req, res) => {
-  res.sendFile(path.join(__dirname, "contacto.html"));
-});
-
-// Catch-all → 404 si no existe la ruta
+// Catch-all → si no existe, mostrar 404 o redirigir al index
 app.use((req, res) => {
   res.status(404).sendFile(path.join(__dirname, "index.html"));
 });
