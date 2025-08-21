@@ -283,36 +283,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 document.querySelectorAll('.categoria').forEach(categoria => {
-  categoria.querySelectorAll('details').forEach(detail => {
-    const sublista = detail.querySelector('.sublista');
+  const detalles = categoria.querySelectorAll('details');
 
-    let timeout;
+  categoria.addEventListener('mouseover', e => {
+    // Si el cursor está sobre un summary
+    const summary = e.target.closest('summary');
+    if (!summary) return;
 
-    // Abrir al pasar el cursor sobre summary o sublista
-    detail.querySelector('summary').addEventListener('mouseenter', () => {
-      clearTimeout(timeout);
-      detail.open = true;
+    detalles.forEach(detail => {
+      const sublista = detail.querySelector('.sublista');
+      if (detail.contains(summary)) {
+        // Mostrar la sublista correspondiente
+        sublista.style.display = 'block';
+        detail.open = true;
+      } else {
+        // Ocultar todas las otras sublistas
+        const s = detail.querySelector('.sublista');
+        s.style.display = 'none';
+        detail.open = false;
+      }
     });
+  });
 
-    sublista.addEventListener('mouseenter', () => {
-      clearTimeout(timeout);
-      detail.open = true;
-    });
-
-    // Cerrar al salir de summary o sublista
-    detail.querySelector('summary').addEventListener('mouseleave', () => {
-      timeout = setTimeout(() => {
-        if (!sublista.matches(':hover')) {
-          detail.open = false;
-        }
-      }, 50);
-    });
-
-    sublista.addEventListener('mouseleave', () => {
+  categoria.addEventListener('mouseleave', () => {
+    // Al quitar el cursor de la categoría, cerrar todas las sublistas
+    detalles.forEach(detail => {
+      const sublista = detail.querySelector('.sublista');
+      sublista.style.display = 'none';
       detail.open = false;
     });
   });
 });
+
 
   
 });

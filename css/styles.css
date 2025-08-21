@@ -1,17 +1,7 @@
-/* Reemplazo de Lato con fuente sistema sans-serif */
 @font-face {
-  font-family: "Lato";
-  src: local("Arial"), local("Helvetica"), local("Sans-serif");
+  font-family: "Angella White Personal Use Only";
+  src: url("AngellaWhitePersonalUseOnly-R.woff") format("woff");
   font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Reemplazo de Dancing Script con fuente sistema cursiva */
-@font-face {
-  font-family: "Dancing Script";
-  src: local("Comic Sans MS"), local("cursive"), local("Sans-serif");
-  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
@@ -26,7 +16,7 @@
 html,
 body {
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Angella White Personal Use Only";
   color: rgb(15, 14, 14);
   line-height: 1.6;
   background: linear-gradient(135deg, #e7c798, #e6dbcc);
@@ -54,11 +44,10 @@ header {
 }
 header h1 {
   position: absolute;
-  bottom: 20px;
-  font-family: "Dancing Script", cursive;
-  font-size: 2.5rem;
+  bottom: 0;
+  font-family: "Angella White Personal Use Only";
   margin-left: 9rem;
-  line-height: 1.2;
+  line-height: 1;
 }
 
 /* ===== Language Selector ===== */
@@ -68,10 +57,11 @@ header h1 {
   right: 1rem;
   background: #d8a557;
   padding: 5px 8px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   border-radius: 4px;
   z-index: 1001;
   margin-right: 9rem;
+  font-family: "Angella White Personal Use Only";
 }
 
 .container {
@@ -132,20 +122,28 @@ nav a {
   color: #0a0a09;
   text-decoration: none;
   font-weight: 500;
+  font-size: 1.2rem;
 }
 .sveta {
   display: block;
   color: #d8a557;
+  font-family: "Angella White Personal Use Only";
+  font-size: 4rem;
+   line-height: 0.5; /* más compacto */
 }
+
 
 .beauty {
   display: block;
   color: hwb(210 27% 71%);
-  font-size: 1.5rem;
-  margin-top: 0.3rem;
+  font-size: 2.5rem;
+  margin-top: 0.2rem;
+  font-family: "Angella White Personal Use Only";
+   line-height: 1.6; /* más compacto */
 }
 .nosotros {
   margin-left: 9rem;
+  font-family: "Angella White Personal Use Only";
 }
 
 .foto img {
@@ -199,123 +197,113 @@ main {
 
 main.servicios {
   display: grid;
-  
-  gap: 10px;
+  gap: 0; /* elimina espacio entre filas del grid */
   max-width: 500px;
   margin: 100px auto 0 auto; /* margen superior de 50px */
-  padding: 60px;
-  font-family: Arial, sans-serif;
+ 
+  font-family: "Angella White Personal Use Only";
   margin-left: 5rem;
+  font-size: 1.2rem;
 }
 
-/* Cada categoría */
-.categoria {
+section.categoria1 {
+  margin-top: 4rem;
+  margin-left: 4rem;
+}
+
+section.categoria2 {
+  margin-top: -7rem;
+  margin-left: 4rem;
+}
+
+section.categoria3 {
+    margin-top: -7rem;
+  margin-left: 4rem;
+}
+
+section.categoria4 {
+    margin-top: -9rem;
+  margin-left: 4rem;
+}
+/* Subcategorías (resumen + lista) */
+.subcategoria {
   position: relative;
-  padding: 5px;
-  border-radius: 12px;
+  margin-bottom: 0;
+ 
   
 }
-/* Sublista flotante a la derecha */
-.sublista {
+
+/* Título de sublista */
+.subcategoria .summary {
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #0a0611;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+  
+}
+
+.subcategoria .summary:hover {
+  color: #d63384;
+  background-color: rgba(200,200,200,0.1);
+}
+
+/* Sublista flotante */
+.subcategoria .sublista {
   position: absolute;
   top: 0;
-  left: 65%; /* justo al lado de la categoría */
-  display: none; /* oculto por defecto */
-  background-color: #fff;
+  left: 53%; /* justo a la derecha de la categoría */
+  display: none;
+  background-color:inherit /* cambia si quieres transparente */
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    padding: 10px 10px 10px 0; /* top right bottom left */
-  width: 30rem;                     /* ancho fijo */
-  max-width: calc(100vw - 50px);      /* no se salga de la pantalla */
-  max-height: calc(20vh - 10px);  /* deja 100px libre abajo */
-  overflow-y: auto;                 /* scroll vertical si es necesario */
-  z-index: 10;                       /* encima de otros elementos */
- 
+  padding: 10px;
+  width: 25rem;
+  max-width: calc(100vw - 50px);
+  max-height: 60vh;
+  overflow-y: auto;
+  z-index: 10;
 }
 
+/* Lista de elementos */
+.subcategoria .sublista ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-details[open] .sublista {
+.subcategoria .sublista ul li {
+  padding: 2px 0;
+  line-height: 1.4;
+}
+
+/* Hover para mostrar sublista */
+.subcategoria:hover .sublista {
   display: block;
 }
-
-.categoria ul {
-  display: block; /* visible dentro del details */
-  top: 0;
-  left: 70%; /* a la derecha de la categoría */
-  display: none; /* oculto por defecto */
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  width: 100%;
-}
-
-/* Opcional: sublista ligeramente indentada */
-.categoria ul li {
-  margin-left: 20px; /* para simular desplazamiento a la derecha */
-  margin-bottom: 5px;
-  line-height: 1.4;
-}
-
-.categoria:hover ul {
-  display: block; /* se muestra al pasar mouse */
-}
-
-.categoria h1 {
-  font-size: 24px;
-  color: #d8a557;
-  margin-bottom: 10px;
-}
-
-details summary {
-  font-size: 18px;
-  color: rgb(10, 6, 17);
-  cursor: pointer;
-  margin-bottom: 5px;
-}
-
-details[open] summary {
-  color: #d63384;
-}
-
-details ul {
-  list-style: none;  /* quita viñetas */
-  padding-left: 0;   /* sin padding izquierdo */
-  margin-left: 0;    /* sin margen izquierdo */
-}
-
-details ul li {
-  margin: 0 0 5px 0; /* margen solo debajo de cada ítem */
-  padding: 0;        /* sin padding */
-  line-height: 1.4;
-}
-
-
 #galeria {
   width: 100%;
-  height: calc(100vh - 8rem); /* altura de la pantalla menos el header fijo */
+  height: calc(10vh - 5rem); /* altura de la pantalla menos el header fijo */
   max-width: 100%; /* quitar límite máximo */
   margin: 0 auto;
-  overflow: hidden;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  top: -60px;
 }
 
 .slide {
   position: absolute;
-  top: 0;
+  top: 1rem;
   left: 0;
   width: 100%;
   height: 100%;
   opacity: 0; /* invisible por defecto */
   transition: opacity 1.5s ease-in-out; /* fade entre slides */
   z-index: 1;
-  overflow: hidden;
 }
 
 .slide.active {
@@ -336,22 +324,21 @@ details ul li {
   align-items: center;
   display: flex;
   overflow: hidden;
-  overflow: hidden; /* evita que se salga el fondo */
 }
 
 /* Imagen principal: efecto zoom con desvanecimiento */
 .slide-content img {
   position: relative;
   z-index: 4; /* siempre delante */
-  width: 100%;
-  height: 100%;
-  object-fit: fill; /* ⚠ deforma la imagen */
+  width: auto;
+  height: 110%; /* mantiene la proporción */
+  object-fit: cover; /* o contain según el efecto deseado */
+
   display: block;
   margin: auto;
   transform: scale(0.99); /* tamaño inicial más pequeño */
   opacity: 0;
-  transition: transform 5s cubic-bezier(0.4, 0, 0.2, 5),
-    opacity 1.5s ease-in-out; /* zoom y fade out */
+  transition: transform 5s cubic-bezier(0.4, 0, 0.2, 5), opacity 1s ease-in-out; /* zoom y fade out */
 }
 
 /* Cuando el slide está activo, la imagen se agranda */
@@ -463,7 +450,9 @@ details ul li {
   background-color: #222;
   color: #ecd37a;
   padding: 0.3rem 1rem; /* espacio superior reducido */
-  gap: 0.5rem;
+  gap: 0.1rem;
+  font-size: 1.2rem;
+  font-family: "Angella White Personal Use Only";
 }
 
 .footer-content,
@@ -533,26 +522,19 @@ details ul li {
 }
 
 /* Footer nav centrado vertical y horizontalmente */
-.footer-nav {
-  position: absolute;
-  top: 0; /* pegado al margen superior */
-  left: 0;
-  right: 0; /* ocupa todo el ancho del site-footer */
-  display: flex;
-  justify-content: center; /* centra los enlaces dentro del nav */
-}
 
 .footer-nav ul {
   display: flex;
-  gap: 5rem; /* espacio entre enlaces */
   margin: 0;
   padding: 0;
   list-style: none; /* quita viñetas */
-  margin-top: -7rem;
+  margin-top: -11rem;
   flex-direction: row; /* opcional, horizontal por defecto */
+  
 }
 .footer-nav li {
-  margin-right: 5rem; /* separación entre elementos */
+  margin-right: 0.1rem; /* separación entre elementos */
+  
 }
 .footer-nav li:last-child {
   margin-right: 0; /* quita margen del último */
@@ -562,12 +544,14 @@ details ul li {
 .footer-nav {
   top: 0.1rem; /* sube un poco hacia el margen superior del footer */
   position: relative; /* relativo para respetar site-footer */
+  
 }
 .footer-nav a {
   color: #ecd37a;
   text-decoration: underline; /* subrayado por defecto */
   font-weight: 500;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
+  font-family: "Angella White Personal Use Only";
 }
 
 .footer-nav a:hover {
@@ -610,6 +594,14 @@ details ul li {
 }
 
 /* ==== RESPONSIVE GENERAL ==== */
+
+/* Ajustes globales para imágenes, videos e iframes */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
 
 /* Móviles pequeños (hasta 480px) */
 @media (max-width: 480px) {
@@ -658,6 +650,46 @@ details ul li {
     margin-top: 60px;
   }
 
+  .foto img {
+    width: 80%;
+    margin: 2rem auto;
+    display: block;
+  }
+
+  .local {
+    position: relative;
+    margin: 2rem auto;
+    right: auto;
+    top: auto;
+    max-width: 95%;
+  }
+
+  .leyenda-local {
+    position: relative;
+    top: auto;
+    margin: 1.5rem auto;
+    width: 95%;
+    text-align: center;
+    left: auto;
+    transform: none;
+  }
+
+  .logo img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  /* ==== Footer FIX ==== */
+  .footer-brand-block,
+  .footer-legal,
+  .footer-nav {
+    position: relative; /* quitar absolute */
+    top: auto;
+    left: auto;
+    margin: 1rem 0;
+    text-align: center;
+  }
+
   .footer-content {
     flex-direction: column;
     align-items: center;
@@ -675,21 +707,17 @@ details ul li {
     align-items: center;
   }
 
+  .footer-nav ul,
+  .footer-legal ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
   .social-icons {
     justify-content: center;
     margin-left: 0;
     margin-top: 1.5rem;
     gap: 1.5rem;
-  }
-
-  .footer-nav {
-    margin-left: 0;
-  }
-
-  .footer-nav ul,
-  .footer-legal ul {
-    flex-direction: column;
-    gap: 1rem;
   }
 }
 
@@ -710,6 +738,34 @@ details ul li {
     align-items: center;
   }
 
+  .local {
+    top: auto;
+    right: auto;
+    margin: 2rem auto;
+    position: relative;
+    max-width: 90%;
+  }
+
+  .leyenda-local {
+    position: relative;
+    width: 90%;
+    left: auto;
+    transform: none;
+    text-align: center;
+    margin: 1rem auto;
+  }
+
+  /* ==== Footer FIX ==== */
+  .footer-brand-block,
+  .footer-legal,
+  .footer-nav {
+    position: relative; /* quitar absolute */
+    top: auto;
+    left: auto;
+    margin: 1rem 0;
+    text-align: center;
+  }
+
   .footer-content {
     flex-direction: column;
     align-items: center;
@@ -725,9 +781,10 @@ details ul li {
     text-align: center;
   }
 
-  .footer-nav ul {
-    gap: 1.5rem;
+  .footer-nav ul,
+  .footer-legal ul {
     flex-direction: column;
+    gap: 1rem;
   }
 
   .social-icons {
@@ -824,15 +881,7 @@ details ul li {
   }
 }
 
-/* Estilos comunes para listas flexibles */
-nav ul,
-.footer-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: clamp(1rem, 4vw, 4rem);
-}
-/* Botón oculto en pantallas grandes */
+/* Menú responsive */
 .menu-toggle {
   display: none;
   font-size: 2rem;
@@ -842,7 +891,6 @@ nav ul,
   cursor: pointer;
 }
 
-/* Menú responsive */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
