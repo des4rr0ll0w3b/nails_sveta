@@ -2,7 +2,7 @@
 
 export async function loadLanguage(lang) {
   try {
-    const response = await fetch(`/locales/${lang}.json`);
+    const response = await fetch(`locales${lang}.json`);
     const translations = await response.json();
 
     // Traducir elementos

@@ -76,7 +76,7 @@ function initGaleria() {
 
 async function loadLanguage(lang) {
   try {
-    const response = await fetch(`../frontend/locales/${lang}.json`);
+    const response = await fetch(`/locales/${lang}.json`);
     const traducciones = await response.json();
     console.log("traducciones cargadas:", traducciones);
 
