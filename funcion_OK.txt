@@ -1,0 +1,5 @@
+* Se crea los menús y sub menús, funciona correctamente con todos los tratamientos.
+* Una ves se escoge el tratamientos  practicar, se habilita reserva por whatsApp.
+* Se configura idioma en todas las paginas y los servicios.
+* Funcionando galería de imágenes.
+	

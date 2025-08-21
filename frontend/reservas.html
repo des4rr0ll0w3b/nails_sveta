@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reservas - Salón Nails</title>
+  <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script type="module" src="./js/main.js"></script>
+</head>
+<body>
+
+  <!-- Header cargado dinámicamente -->
+  <div id="header"></div>
+
+<main style="width:100%; height:100vh; margin:0; padding:0;">
+  <div class="wrapper" style="width:100%; height:100%;">
+    <section id="reservas" style="width:100%; height:100%;">
+      <iframe 
+        src="https://book.plandok.com/es/sveta-nails-beauty-salon-tajenv" 
+        style="width:100%; height:100%; border:none; display:block;"
+        loading="lazy">
+      </iframe>
+    </section>
+  </div>
+</main>
+
+
+
+  <!-- Footer cargado dinámicamente -->
+  <div id="footer"></div>
+
+  <script type="module" src="../frontend/js/main.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.cargarHeaderFooterYIdioma) {
+      window.cargarHeaderFooterYIdioma();
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contacto - Salón Nails</title>
+  <link rel="shortcut icon" href="../img/iconos/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Header cargado dinámicamente -->
+  <div id="header"></div>
+
+  <main>
+    <div class="wrapper">
+      <section id="contacto">
+        <h2 data-i18n="contacto.titulo">Contacto</h2>
+        <p data-i18n="info_contacto">Puedes contactarnos por WhatsApp, Instagram, Facebook o el siguiente formulario.</p>
+        <form>
+          <label for="nombre" data-i18n="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" required />
+          <label for="mensaje" data-i18n="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" required></textarea>
+          <button type="submit" data-i18n="enviar">Enviar</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer cargado dinámicamente -->
+  <div id="footer"></div>
+
+  <script type="module" src="../frontend/js/main.js"></script>
+
+  <script>
+    // Cargar header y footer y luego inicializar idioma
+    async function cargarLayout() {
+      await Promise.all([
+        fetch('header.html')
+          .then(res => res.text())
+          .then(data => document.getElementById('header').innerHTML = data),
+        fetch('footer.html')
+          .then(res => res.text())
+          .then(data => document.getElementById('footer').innerHTML = data),
+      ]);
+      // Inicializa el sistema de idioma después de cargar header
+      if (typeof initLanguageSystem === 'function') {
+        initLanguageSystem();
+      }
+    }
+    cargarLayout();
+  </script>
+
+</body>
+</html>
