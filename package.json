@@ -1,0 +1,27 @@
+{
+  "name": "nailsalon-app",
+  "version": "1.0.0",
+  "description": "Aplicación web Nails Sveta",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/des4rr0ll0w3b/nails_sveta.git"
+  },
+  "keywords": [],
+  "author": "des4rr0ll0w3b",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "dotenv": "^16.3.1"
+  },
+  "bugs": {
+    "url": "https://github.com/des4rr0ll0w3b/nails_sveta/issues"
+  },
+  "homepage": "https://github.com/des4rr0ll0w3b/nails_sveta#readme"
+}
