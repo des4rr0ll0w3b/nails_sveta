@@ -115,7 +115,32 @@ function initLanguageSystem() {
   });
 }
 
-// ✅ // CARGAR HEADER Y FOOTER, INICIALIZAR TODO
+// =========================
+// MENÚ HAMBURGUESA
+// =========================
+function initHamburgerMenus() {
+  // Header
+  const headerHamburger = document.querySelector(".header-hamburger");
+  const headerMenu = document.querySelector(".header-nav ul"); // más directo
+  if (headerHamburger && headerMenu) {
+    headerHamburger.addEventListener("click", () => {
+      headerMenu.classList.toggle("active");
+    });
+  }
+
+  // Footer
+  const footerHamburger = document.querySelector(".footer-hamburger");
+  const footerMenu = document.querySelector(".footer-nav ul");
+  if (footerHamburger && footerMenu) {
+    footerHamburger.addEventListener("click", () => {
+      footerMenu.classList.toggle("active");
+    });
+  }
+}
+
+// =========================
+// CARGAR HEADER Y FOOTER + INICIALIZAR TODO
+// =========================
 async function cargarHeaderFooterYInicializar() {
   try {
     await Promise.all([
@@ -135,29 +160,13 @@ async function cargarHeaderFooterYInicializar() {
     await loadLanguage(lang);
     initLanguageSystem();
     initGaleria();
-
-// -----------------------------
-    // Inicializar hamburguesas
-    const headerHamburger = document.querySelector(".header-hamburger");
-    const headerMenu = document.querySelector(".header-nav nav ul");
-    if (headerHamburger && headerMenu) {
-      headerHamburger.addEventListener("click", () => {
-        headerMenu.classList.toggle("active");
-      });
-    }
-
-    const footerHamburger = document.querySelector(".footer-hamburger");
-    const footerMenu = document.querySelector(".footer-nav ul");
-    if (footerHamburger && footerMenu) {
-      footerHamburger.addEventListener("click", () => {
-        footerMenu.classList.toggle("active");
-      });
-    }
+    initHamburgerMenus(); // inicializa hamburguesa después de cargar header/footer
 
   } catch (err) {
     console.error("Error inicializando la app:", err);
   }
 }
+
 
 // ✅ INICIO ÚNICO
 document.addEventListener("DOMContentLoaded", () => {
