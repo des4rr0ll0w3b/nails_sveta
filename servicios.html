@@ -141,26 +141,13 @@
 
 
 
+<!-- Footer -->
+<div id="footer"></div>
 
-  <div id="footer"></div>
-  <script>
-    fetch('footer.html')
-      .then(res => res.text())
-      .then(data => document.getElementById('footer').innerHTML = data);
-  </script>
-  
-  <!-- ✅ Scripts cargados al final para asegurar orden correcto -->
-  <script type="module" src="../frontend/js/datos.js"></script>
-  <script type="module" src="../frontend/js/main.js" defer></script>
-  <script>
-  fetch('header.html') .then(res => res.text()) .then(data => { document.getElementById('header').innerHTML = data;
-  }) 
-  .then(() => {
-      // Re-ejecutar lógica después de cargar header
-      const lang = localStorage.getItem("idioma") || "es";
-      loadLanguage (lang);
-    });
-</script>
+<!-- ✅ Cargar main.js que se encarga de header, footer y hamburguesa -->
+<script type="module" src="/js/main.js" defer></script>
+
+
 
 </body>
 </html>
