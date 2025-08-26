@@ -711,14 +711,10 @@ EL SUIEINTE
   }
 
   /* Nav para móvil */
-  nav ul {
-    flex-direction: column;
-    gap: 1rem;
-    display: none; /* por defecto oculto */
-    background: #fff;
-    padding: 1rem;
-    width: 100%;
-    margin-top: 0.5rem;
+   nav ul {
+    flex-direction: row;     /* mantener horizontal */
+    display: flex;           /* asegurarse de que no se oculte */
+    gap: 0.8rem;
   }
 
 .footer-nav ul {
