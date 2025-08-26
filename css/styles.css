@@ -13,20 +13,11 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden; /* corta cualquier desbordamiento */
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+html, body {
+  max-width: 1400px; /* ancho máximo */
+  margin: 0 auto;    /* centra horizontalmente */
+  padding: 0;        /* elimina padding por defecto */
+  box-sizing: border-box; /* para que padding y border no rompan el ancho */
 }
 
 html {
@@ -41,30 +32,61 @@ html {
 header {
   background: #e6dbcc;
   padding: 0; /* sin margen vertical */
-  position: relative;
+  position:relative;
   width: 100%;
   z-index: 1000;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 }
+/* Header como contenedor flex */
+#header .site-header {
+  position: relative; /* para que el h1 se posicione dentro de este contenedor */
+  height: 100px;
+}
+
+/* Nav centrado */
+header nav {
+  display: flex;
+  justify-content: center; /* centra el ul dentro del nav */
+  width: 100%;             /* ocupa todo el ancho del header */
+}
 
 /* Título */
-header .site-title {
-  margin: 0;
-  padding-left: 3rem; /* separa del borde izquierdo */
-  padding-top: 2rem; /* sube/baja para centrar verticalmente */
-  padding-bottom: 0.8rem; /* igual que top para balance */
-  text-align: left;
-  position: relative;
-  top: 2rem;
+#header .site-header .site-title {
+  margin-left: 2rem; /* desktop */
 }
 
-header h1 {
+#header .site-header h1 {
+  position: absolute;
+  bottom: 0.9rem;           /* pegado al borde inferior */
+  left: 3rem;          /* 3rem desde el borde izquierdo */
   margin: 0;
-  padding-left: 2.5rem; /* aumenta el espacio desde el borde izquierdo */
-  text-align: left;
-  position: relative;
-  padding: 0;
 }
+/* Language selector */
+#header .site-header .language-selector {
+  display: block;
+  position: absolute; /* cambiar de relative a absolute */
+  top: 4.5rem;            /* centra verticalmente */
+  right: 4rem;         /* al borde derecho */
+  transform: translateY(-50%); /* centra exactamente vertical */
+  font-size: 0.9rem;
+  padding: 2px 4px;
+  border-radius: 4px;
+  background: #d8a557;
+  z-index: 1001;
+}
+
+
+/* Lista de navegación centrada */
+ul#menu {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;        /* espacio entre los enlaces */
+  list-style: none;
+  margin: 0;        /* elimina margen externo */
+  padding: 0;       /* elimina padding */
+  margin-top: 4rem;
+}
+
 
 /* Logo y nombres */
 
@@ -82,48 +104,6 @@ header h1 {
   line-height: 1.2;
   margin-top: 0.1rem;
 }
-
-/* Language selector */
-.language-selector {
-  position: relative; /* relativo para responsive */
-  float: right; /* se mantiene al lado derecho */
-  margin-right: 3rem; /* mismo espacio que título a la izquierda */
-  font-size: 0.9rem;
-  padding: 2px 4px;
-  border-radius: 4px;
-  background: #d8a557;
-  z-index: 1001;
-  top: -0.4rem;
-}
-
-/* Nav general */
-nav {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  position: relative;
-  z-index: 1002; /* superior a header-inner y language-selector */
-}
-
-nav ul {
-  display: flex;
-  flex-direction: row;
-  gap: 4rem;
-  list-style: none;
-  margin: 0;
-  font-size: 1.2rem;
-  z-index: 1002; /* asegurar que los enlaces estén encima */
-}
-
-nav a {
-  color: #0a0a09;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1rem;
-  text-align: center;
-  position: relative; /* para garantizar que el z-index funcione */
-}
-
 
 .container {
   max-width: 1440px;
@@ -504,20 +484,18 @@ section.categoria4 {
   flex: 1 1 250px;
 }
 
-.footer-nav {
-  display: flex;
-}
 
 .footer-nav ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none; /* quita las viñetas */
 }
 
 .footer-nav li a {
   display: block;
-
   font-size: 0.9rem;
 }
 
@@ -528,11 +506,12 @@ section.categoria4 {
   align-items: center;
   flex-wrap: wrap;
   border-top: 1px solid #444;
-  padding: 1rem 4rem;
+  padding: 1rem 2rem;
+ 
 }
 
 .footer-contact {
-  padding-left: 5rem;
+  padding-left: 3rem;
   text-align: left;
 }
 
@@ -577,13 +556,13 @@ section.categoria4 {
   gap: 1rem;
   flex: 0.5 1 1px;
   width: 100%;
-  margin-left: 5rem;
+  margin-left: 3rem;
 }
 
 .social-icons {
   display: flex;
   gap: 2rem;
-  margin-left: 5rem;
+  margin-left: 3rem;
   margin-top: 1rem;
 }
 
@@ -596,24 +575,23 @@ section.categoria4 {
 /* Footer Tablet (≤768px) */
 /* ---------------------- */
 
-@media (min-width: 481px) and (max-width: 768px) {
-  /* Mostrar botón */
+
+  
   /*****************HEADER************/
 
-
-  /* Ajuste título */
-  header .site-title {
-    padding-left: 2rem;   /* un poco más compacto */
-    padding-top: 1.5rem;
-    padding-bottom: 0.8rem;
+@media (min-width: 481px) and (max-width: 769px) {
+  #header .site-header {
+    background: lightblue !important;
   }
 
-  /* Ajuste selector de idioma */
-  .language-selector {
-    margin-right: 2rem;
-    font-size: 0.85rem;
-    padding: 2px 4px;
-    top: 0;
+  #header .site-header .site-title {
+    margin-left: 8rem;
+    font-size: 2.5rem;
+  }
+
+  nav ul#menu {
+    margin-left: 21.5rem;
+    gap: 7rem;
   }
 
 .footer-nav ul {
@@ -694,27 +672,54 @@ EL SUIEINTE
 @media (max-width: 480px) {
   /*****************HEADER************/
 
-
-   /* Ajuste título */
-  header .site-title {
-    padding-left: 1.5rem;
-    padding-top: 1.2rem;
-    padding-bottom: 2rem;
+  /* Header más compacto */
+  #header .site-header {
+    height: 70px;               /* más bajo en móvil */
+    padding: 0 1rem;            /* menos espacio a los lados */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  /* Ajuste selector de idioma */
-  .language-selector {
-    margin-right: 1.9rem;
-    font-size: 0.8rem;
-    padding: 2px 3px;
-    top: 0;
+/* Título */
+#header .site-header h1 {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  position: relative;
+  left: 0;   /* desplaza a la derecha, usa negativo si quieres mover a la izquierda */
+  top: 0;
+}
+
+    /* Logo y subtítulo */
+  .sveta {
+    font-size: 1.6rem;          /* más pequeño */
   }
 
-  /* Nav para móvil */
-   nav ul {
-    flex-direction: row;     /* mantener horizontal */
-    display: flex;           /* asegurarse de que no se oculte */
-    gap: 0.8rem;
+  .beauty {
+    font-size: 0.9rem;
+  }
+  /* Menú de navegación */
+  nav ul#menu {
+    list-style: none;           /* sin viñetas */
+    margin: 1rem;
+    padding: 0;
+    display: flex;
+    gap: 1rem;                  /* menos separación entre enlaces */
+    font-size: 0.9rem;
+    margin-top: 4rem;
+  }
+
+    nav a {
+    font-size: 0.9rem;
+  }
+ /* Selector de idioma */
+  #header .site-header .language-selector {
+    top: auto;
+    right: 2rem;                /* pegado al borde derecho */
+    font-size: 0.7rem;
+    padding: 1px 4px;
+    top: 2rem;
   }
 
 .footer-nav ul {
