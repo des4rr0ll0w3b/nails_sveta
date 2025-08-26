@@ -115,28 +115,6 @@ function initLanguageSystem() {
   });
 }
 
-// =========================
-// MENÚ HAMBURGUESA
-// =========================
-function initHamburgerMenus() {
-  // Header
-  const headerHamburger = document.querySelector(".header-hamburger");
-  const headerMenu = document.querySelector(".header-nav ul"); // más directo
-  if (headerHamburger && headerMenu) {
-    headerHamburger.addEventListener("click", () => {
-      headerMenu.classList.toggle("active");
-    });
-  }
-
-  // Footer
-  const footerHamburger = document.querySelector(".footer-hamburger");
-  const footerMenu = document.querySelector(".footer-nav ul");
-  if (footerHamburger && footerMenu) {
-    footerHamburger.addEventListener("click", () => {
-      footerMenu.classList.toggle("active");
-    });
-  }
-}
 
 // =========================
 // CARGAR HEADER Y FOOTER + INICIALIZAR TODO

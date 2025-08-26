@@ -124,10 +124,6 @@ nav a {
   position: relative; /* para garantizar que el z-index funcione */
 }
 
-/* Botón hamburguesa */
-.hamburger {
-  display: none; /* oculto en desktop */
-}
 
 .container {
   max-width: 1440px;
@@ -591,10 +587,7 @@ section.categoria4 {
   margin-top: 1rem;
 }
 
-/* ===== Footer hamburguesa ===== */
-.footer-hamburger {
-  color: #fff; /* visible sobre footer */
-}
+
 /*_______________________________________________________________________*/
 /*_______________________________________________________________________*/
 /*_______________________________________________________________________*/
@@ -623,67 +616,27 @@ section.categoria4 {
     top: 0;
   }
 
-  /* Nav horizontal centrado */
-  nav ul {
-    flex-direction: row;   /* horizontal */
-    gap: 3rem;             /* algo menos que desktop */
-    justify-content: center;
-  }
+.footer-nav ul {
+  display: flex;            
+  flex-direction: row;      
+  justify-content: center;  
+  gap: 2rem;                
+   background: #e6dbcc; /* reemplaza con el color exacto de tu footer */
+  padding: 1rem 0;          
+  list-style: none;         
+  margin: 0;                
+}
 
-  /* Botón hamburguesa tablet */
-  .hamburger {
-    display: block;
-    font-size: 1.8rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-    position: relative;
-    top: 0;
-    right: 0;
-  }
+.footer-nav ul li a {
+  text-decoration: none;    
+  color: inherit;           /* usa el color de texto del footer original */
+  font-weight: bold;        
+}
 
-  /* Menú desplegable hamburguesa */
-  nav ul {
-    display: none;        /* oculto por defecto en tablet si quieres usar hamburguesa */
-  }
-  nav ul.active {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    background: #fff;
-    padding: 1rem;
-    margin-top: 0.5rem;
-  }
+.footer-nav ul li a:hover {
+  opacity: 0.8;             /* ligero efecto al pasar el mouse */
+}
 
-  /*FOOTER HAMBURGUESA*/
-
-  .footer-hamburger {
-    display: block;
-    font-size: 2rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-    position: relative; /* dentro del footer */
-    top: 0.5rem;
-    left: 1rem;
-    z-index: 1100;
-  }
-
-  /* Ocultar menú por defecto */
-  .footer-nav ul {
-    display: none;
-    flex-direction: column;
-    gap: 1.5rem;
-    background: #fff;
-    padding: 1rem;
-    width: 100%;
-  }
-
-  .footer-nav ul.active {
-    display: flex;
-  }
-  /*
 
 EL SUIEINTE 
 */
@@ -696,12 +649,6 @@ EL SUIEINTE
     padding-right: 1rem;
 
     gap: 2rem;
-  }
-
-  .footer-nav ul {
-    justify-content: center;
-    margin-top: 2rem;
-    gap: 1.5rem;
   }
 
   .footer-bottom {
@@ -774,49 +721,24 @@ EL SUIEINTE
     margin-top: 0.5rem;
   }
 
-  nav ul.active {
-    display: flex; /* visible al activar hamburguesa */
-  }
+.footer-nav ul {
+  display: flex;            
+  flex-direction: row;      
+  justify-content: center;  
+  gap: 2rem;                
+  background: inherit;      /* toma el color de fondo del footer original */
+  padding: 1rem 0;          
+  list-style: none;         
+  margin: 0;                
+}
 
-  /* Botón hamburguesa móvil */
-  .hamburger {
-    display: block;
-    font-size: 2rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-    position: relative;
-    margin-left: 1.5rem;
-  }
-
-  /*FOOTER HAMBURGUESA*/
-  .footer-hamburger {
-  display: block;
-    font-size: 2rem;
-    cursor: pointer;
-    background: none;
-    border: none;
-    margin-left: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .footer-nav ul {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    background: #fff;
-    padding: 1rem;
-    width: 100%;
-  }
-
-  .footer-nav ul.active {
-    display: flex;
-  }
-
-  .footer-nav .nav ul.show {
-    display: flex; /* se muestra cuando hacemos click en hamburguesa */
-  }
+.footer-nav ul li a {
+  text-decoration: none;    
+  font-weight: bold;        
+}
+.footer-nav ul li a:hover {
+  opacity: 0.8;             /* ligero efecto al pasar el mouse */
+}
 
   .site-footer {
     padding: 1rem;
@@ -825,12 +747,6 @@ EL SUIEINTE
   }
 
   .footer-top {
-    gap: 1rem;
-  }
-
-  .footer-nav ul {
-    flex-direction: column;
-    align-items: center;
     gap: 1rem;
   }
 
@@ -874,4 +790,4 @@ EL SUIEINTE
       transform: translateX(-10px);
     }
   }
-}
+
