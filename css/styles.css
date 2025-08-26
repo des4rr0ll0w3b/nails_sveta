@@ -672,55 +672,54 @@ EL SUIEINTE
 @media (max-width: 480px) {
   /*****************HEADER************/
 
-  /* Header más compacto */
+  /* Header */
   #header .site-header {
-    height: 70px;               /* más bajo en móvil */
-    padding: 0 1rem;            /* menos espacio a los lados */
+    height: 70px;
+    padding: 0 0.5rem;        /* menos padding que en desktop */
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;    /* opcional: apila logo y nav */
+    justify-content: flex-end; /* h1 pegado al borde inferior */
+    align-items: flex-start;   /* h1 pegado al borde izquierdo */
   }
 
-/* Título */
-#header .site-header h1 {
-  margin: 0;
-  font-size: 1.2rem;
-  line-height: 1.2;
-  position: relative;
-  left: 0;   /* desplaza a la derecha, usa negativo si quieres mover a la izquierda */
-  top: 0;
-}
+  /* Título */
+  #header .site-header h1 {
+    margin: 0;
+    padding-left: 0.5rem;     /* pequeño margen desde el borde */
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
 
-    /* Logo y subtítulo */
+  /* Subtítulo o logo */
   .sveta {
-    font-size: 1.6rem;          /* más pequeño */
+    font-size: 1.6rem;
   }
 
   .beauty {
     font-size: 0.9rem;
   }
-  /* Menú de navegación */
+  /* Menú centrado */
   nav ul#menu {
-    list-style: none;           /* sin viñetas */
-    margin: 1rem;
+    list-style: none;
+    margin: 0;
     padding: 0;
     display: flex;
-    gap: 1rem;                  /* menos separación entre enlaces */
+    justify-content: center;  /* centra horizontalmente */
+    gap: 1rem;               /* menos separación entre enlaces */
     font-size: 0.9rem;
-    margin-top: 4rem;
   }
 
-    nav a {
+  nav a {
     font-size: 0.9rem;
   }
- /* Selector de idioma */
+
+  /* Selector de idioma */
   #header .site-header .language-selector {
     top: auto;
-    right: 2rem;                /* pegado al borde derecho */
-    font-size: 0.7rem;
-    padding: 1px 4px;
-    top: 2rem;
-  }
+    right: 0.5rem;           /* pegado al borde derecho */
+    font-size: 0.8rem;
+    padding: 2px 6px;
+  }}
 
 .footer-nav ul {
   display: flex;            
