@@ -136,15 +136,6 @@ async function cargarHeaderFooterYInicializar() {
     initLanguageSystem();
     initGaleria();
 
-    // Menú hamburguesa
-    const toggle = document.getElementById("menuToggle");
-    const nav = document.querySelector(".main-nav");
-    if (toggle && nav) {
-      toggle.addEventListener("click", () => {
-        nav.classList.toggle("open");
-      });
-    }
-
   } catch (err) {
     console.error("Error inicializando la app:", err);
   }
@@ -155,8 +146,27 @@ document.addEventListener("DOMContentLoaded", () => {
   cargarHeaderFooterYInicializar();
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  // Header
+  const hamburger = document.querySelector(".hamburger");
+  const menu = document.querySelector("nav ul");
 
+  if (hamburger && menu) {
+    hamburger.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+  }
 
+  // Footer
+  const footerHamburger = document.querySelector(".footer-hamburger");
+  const footerMenu = document.querySelector(".footer-nav ul");
+
+  if (footerHamburger && footerMenu) {
+    footerHamburger.addEventListener("click", () => {
+      footerMenu.classList.toggle("active");
+    });
+  }
+});
 
 // Exponer funciones si es necesario
 window.loadLanguage = loadLanguage;

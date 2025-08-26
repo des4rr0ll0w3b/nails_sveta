@@ -316,5 +316,5 @@ document.querySelectorAll('.categoria').forEach(categoria => {
 });
 
 
-  
+
 });
