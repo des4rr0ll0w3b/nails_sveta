@@ -147,25 +147,25 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Header
-  const hamburger = document.querySelector(".header-hamburger");
-  const nav = document.querySelector(".header-nav .nav");
+// Header hamburguesa
+const hamburger = document.querySelector(".header-hamburger");
+const menu = document.querySelector(".header-nav nav ul"); // <-- selecciona el UL
 
-  if (hamburger && nav) {
-    hamburger.addEventListener("click", () => {
-      nav.classList.toggle("open"); // aquí usamos 'open' para que CSS funcione
-    });
-  }
+if (hamburger && menu) {
+  hamburger.addEventListener("click", () => {
+    menu.classList.toggle("active"); // coincide con el CSS
+  });
+}
 
-  // Footer (igual que antes si tienes hamburguesa en el footer)
-  const footerHamburger = document.querySelector(".footer-hamburger");
-  const footerMenu = document.querySelector(".footer-nav ul");
+// Footer hamburguesa
+const footerHamburger = document.querySelector(".footer-hamburger");
+const footerMenu = document.querySelector(".footer-nav ul");
 
-  if (footerHamburger && footerMenu) {
-    footerHamburger.addEventListener("click", () => {
-      footerMenu.classList.toggle("active");
-    });
-  }
+if (footerHamburger && footerMenu) {
+  footerHamburger.addEventListener("click", () => {
+    footerMenu.classList.toggle("active");
+  });
+}
 });
 
 
