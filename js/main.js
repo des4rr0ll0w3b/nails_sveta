@@ -136,6 +136,24 @@ async function cargarHeaderFooterYInicializar() {
     initLanguageSystem();
     initGaleria();
 
+// -----------------------------
+    // Inicializar hamburguesas
+    const headerHamburger = document.querySelector(".header-hamburger");
+    const headerMenu = document.querySelector(".header-nav nav ul");
+    if (headerHamburger && headerMenu) {
+      headerHamburger.addEventListener("click", () => {
+        headerMenu.classList.toggle("active");
+      });
+    }
+
+    const footerHamburger = document.querySelector(".footer-hamburger");
+    const footerMenu = document.querySelector(".footer-nav ul");
+    if (footerHamburger && footerMenu) {
+      footerHamburger.addEventListener("click", () => {
+        footerMenu.classList.toggle("active");
+      });
+    }
+
   } catch (err) {
     console.error("Error inicializando la app:", err);
   }
@@ -144,28 +162,6 @@ async function cargarHeaderFooterYInicializar() {
 // ✅ INICIO ÚNICO
 document.addEventListener("DOMContentLoaded", () => {
   cargarHeaderFooterYInicializar();
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-// Header hamburguesa
-const hamburger = document.querySelector(".header-hamburger");
-const menu = document.querySelector(".header-nav nav ul"); // <-- selecciona el UL
-
-if (hamburger && menu) {
-  hamburger.addEventListener("click", () => {
-    menu.classList.toggle("active"); // coincide con el CSS
-  });
-}
-
-// Footer hamburguesa
-const footerHamburger = document.querySelector(".footer-hamburger");
-const footerMenu = document.querySelector(".footer-nav ul");
-
-if (footerHamburger && footerMenu) {
-  footerHamburger.addEventListener("click", () => {
-    footerMenu.classList.toggle("active");
-  });
-}
 });
 
 
