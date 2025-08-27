@@ -70,7 +70,7 @@ function initGaleria() {
     slides[currentIndex].classList.add("active");
   }, 3000);
 }
-
+document.addEventListener("DOMContentLoaded", initGaleria);
 
 // TRADUCCIÓN E IDIOMA
 
