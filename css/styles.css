@@ -58,7 +58,7 @@ header nav {
 #header .site-header h1 {
   position: absolute;
   bottom: 0.9rem;           /* pegado al borde inferior */
-  left: 3rem;          /* 3rem desde el borde izquierdo */
+  left: 2.5rem;          /* 3rem desde el borde izquierdo */
   margin: 0;
 }
 /* Language selector */
@@ -66,7 +66,7 @@ header nav {
   display: block;
   position: absolute; /* cambiar de relative a absolute */
   top: 4.5rem;            /* centra verticalmente */
-  right: 4rem;         /* al borde derecho */
+  right: 4.5rem;         /* al borde derecho */
   transform: translateY(-50%); /* centra exactamente vertical */
   font-size: 0.9rem;
   padding: 2px 4px;
@@ -448,13 +448,30 @@ section.categoria4 {
 /* ---------------------- */
 /* Footer Desktop (default) */
 /* ---------------------- */
+
+/* Contenedor padre del footer */
+
 .site-footer {
+  position: relative;  /* necesario para posicionar hijos absolutos */
   background-color: #222;
   color: #fff;
-  padding: 2rem 3rem;
+  padding: 2rem 3rem;  /* puedes mantener padding horizontal */
   font-family: Arial, sans-serif;
   font-size: 0.9rem;
   line-height: 1.5;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+
+/* Contenedor flex de nav + contacto */
+.footer-top {
+  display: flex;
+  justify-content: space-between; /* nav a la izquierda, contacto a la derecha */
+  align-items: flex-start;
+  width: 100%;
+  margin: 0;
+  padding-bottom: 2rem; /* opcional, separa del resto del footer */
 }
 
 .site-header,
@@ -472,63 +489,127 @@ section.categoria4 {
   text-decoration: underline;
 }
 
-/* Footer Top */
-.footer-top {
+.footer-nav-wrapper {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1rem;
-  width: 100%;
-  align-items: center;
+  flex-direction: column; /* pone nav y social-icons en columna */
+  align-items: center;    /* centra horizontalmente todo */
+  gap: 1rem;              /* espacio entre nav y social-icons */
 }
 
-.footer-contact,
+/* Menú de navegación */
 .footer-nav {
-  flex: 1 1 250px;
-}
-
-
-.footer-nav ul {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  list-style: none; /* quita las viñetas */
-}
-
-.footer-nav li a {
-  display: block;
-  font-size: 0.9rem;
-}
-
-/* Footer Bottom */
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  border-top: 1px solid #444;
-  padding: 1rem 2rem;
+  width: 100%;           /* ocupa todo el ancho disponible */
+  margin-top: 1rem;
  
 }
 
-.footer-contact {
-  padding-left: 3rem;
-  text-align: left;
-}
-
-.footer-legal {
-  flex: 1 1 20px;
-  margin-left: 1rem;
-}
-
-.footer-legal ul {
-  list-style: none;
+.footer-nav ul {
   display: flex;
   gap: 1rem;
+  list-style: none;
   padding: 0;
-  margin: 0.5rem 0 0 0;
+  margin: 0;
+  
+}
+
+
+.footer-nav li a {
+  display: flex;
+  font-size: 0.9rem;
+  
+}
+
+/* Footer Bottom */
+div .footer-bottom {
+display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  border-top: 1px;
+  padding: 0;
+  margin: 0;
+  width: auto; 
+
+}
+
+div .footer-top-right {
+position: absolute;
+  top: 0.5cm;               /* ajusta la distancia desde el borde superior */
+  right: 0.5cm;             /* ajusta la distancia desde el borde derecho */
+  display: flex;
+  flex-direction: column;    /* apila los elementos verticalmente */
+  align-items: flex-end;     /* todo alineado a la derecha */
+  gap: 0.5rem;               /* espacio entre bloques */
+}
+
+div .footer-contact {
+  display: flex;              /* activa flexbox */
+  flex-direction: column;     /* apila verticalmente cada línea */
+  align-items: center;      /* alinea todo al borde derecho */
+  text-align: right;          /* contenido interno alineado */
+  max-width: 400px;           /* opcional, controla ancho */
+  margin: 0;
+  padding: 0;
+  padding-right: 3.3rem;     /* separación de 3rem del borde derecho */
+  margin-top: -6.5rem;
+ 
+}
+
+.footer-contact p {
+  margin: 0.1rem 0;           /* espacio uniforme entre líneas */
+  
+}
+
+
+/* Footer legal */
+.footer-legal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 3.5rem;
+  margin-top: 0;
+}
+
+.footer-legal p {
+  display: inline-block;
+  white-space: pre-line;
+  text-align: right;
+  margin: 0.1rem 0;   /* separación vertical entre párrafos */
+  padding: 0 0;  /* espacio interno, hace que baje visualmente */
+}
+
+
+
+/* Lista de links legales */
+.footer-legal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem auto 0 auto;  /* centra el ul horizontalmente */
+  display: block;               /* los li en columna */
+  text-align: center;           /* centra el texto dentro del ul */
+}
+
+.footer-legal ul li {
+  display: block;       /* cada link en su propia línea */
+  margin: 0.2rem 0;     /* espacio vertical entre enlaces */
+}
+
+.footer-legal ul li a {
+  color: #d8a557;
+  text-decoration: none;
+}
+
+.footer-legal ul li a:hover {
+  text-decoration: underline;
+}
+
+
+
+.footer-derechos span {
+  display: block; /* fuerza el salto de línea si <br> falla */
 }
 
 /* Footer Brand */
@@ -536,40 +617,37 @@ section.categoria4 {
   display: flex;
   flex-direction: row;
   gap: 0.2rem;
-  margin-right: 10rem;
+  margin-left: 2.5rem;
 }
 
-.footer-brand p {
-  padding: 0 1rem;
-  white-space: nowrap; /* evita saltos de línea */
-  overflow: visible; /* no corta el contenido */
-  display: block;
-  text-align: center; /* centra el texto horizontalmente */
-  width: 100%; /* ocupa todo el ancho del contenedor */
-  box-sizing: border-box; /* incluye padding en el ancho */
-  margin-right: 0;
-  padding-left: 0;
-}
-
+/* Footer Brand */
 .footer-brand-block {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
-  flex: 0.5 1 1px;
-  width: 100%;
-  margin-left: 3rem;
+  gap: 0.5rem;
+  margin: 0;
+  width: auto;
 }
+
+.footer-brand p {
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+
+/* Social Icons */
 
 .social-icons {
   display: flex;
-  gap: 2rem;
-  margin-left: 3rem;
-  margin-top: 1rem;
+  justify-content: center; /* centra horizontal */
+  gap: 1.5rem;            /* espacio entre iconos */
+  
 }
-
-
+.social-icons img{
+  margin-top: 3rem;
+}
 /*_______________________________________________________________________*/
 /*_______________________________________________________________________*/
 /*_______________________________________________________________________*/
@@ -722,17 +800,25 @@ EL SUIEINTE
     right: 0.5rem;           /* pegado al borde derecho */
     font-size: 0.8rem;
     padding: 2px 6px;
-  }}
+  }
+
+  
+  .site-footer {
+    padding: 1rem;
+    font-size: 0.8rem;
+       text-align: left;
+  }
 
 .footer-nav ul {
   display: flex;            
   flex-direction: row;      
   justify-content: center;  
-  gap: 2rem;                
+  gap: 1rem;                
   background: inherit;      /* toma el color de fondo del footer original */
   padding: 1rem 0;          
   list-style: none;         
-  margin: 0;                
+  margin: 0;   
+  right: 5rem;             
 }
 
 .footer-nav ul li a {
@@ -743,11 +829,6 @@ EL SUIEINTE
   opacity: 0.8;             /* ligero efecto al pasar el mouse */
 }
 
-  .site-footer {
-    padding: 1rem;
-    font-size: 0.8rem;
-       text-align: left;
-  }
 
   .footer-top {
     gap: 1rem;
