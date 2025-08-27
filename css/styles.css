@@ -1,10 +1,3 @@
-@font-face {
-  font-family: "Angella White Personal Use Only";
-  src: url("AngellaWhitePersonalUseOnly-R.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* Reset básico */
 * {
@@ -18,11 +11,48 @@ html, body {
   margin: 0 auto;    /* centra horizontalmente */
   padding: 0;        /* elimina padding por defecto */
   box-sizing: border-box; /* para que padding y border no rompan el ancho */
+   font-family: Verdana, Geneva, sans-serif;
+  font-size: 16px;  /* base desktop */
+  line-height: 1.5;
+  color: #000;
+}
+/* Main y secciones */
+.nosotros,
+.leyenda-local,
+p {
+  font-family: inherit; /* hereda Verdana */
+  font-size: 1rem;      /* 16px */
+  line-height: 1.5;
 }
 
 html {
   scroll-padding-top: 120px; /* Ajusta al alto real de tu header fijo */
 }
+/* H1, H2, H3: títulos */
+h1, .site-title, .sveta {
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+h2 {
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+h3, h4, h5, h6 {
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: normal;
+}
+
+/* Párrafos y textos generales */
+p, li, span, a, .beauty, .nosotros, .leyenda-local {
+  font-family: Verdana, Geneva, sans-serif;
+  font-weight: normal;
+  line-height: 1.4;
+}
+
 
 /* -------------------------------- */
 /* Header Mobile & Tablet Responsive */
@@ -145,59 +175,98 @@ iframe {
   z-index: 1000;
 }
 
-.nosotros {
-  margin-left: 9rem;
-  font-family: Verdana, Geneva, sans-serif;
+/* ===================== PANTALLAS GRANDES ===================== */
+
+
+/* Contenedor principal */
+main {
+  margin: 0 auto;
+  padding: 0;
+  min-height: calc(100vh - 8rem - 60px); /* altura total menos header y footer */
+  position: relative; /* para los elementos absolutos dentro */
+  max-width: 1400px;
 }
 
-.foto img {
-  width: 25%;
-  margin-top: 10rem;
-  margin-left: 9rem;
-  border-radius: 2%;
-}
-
-.local {
-  position: absolute; /* permite posicionar el div */
-  top: 10rem; /* pegado arriba */
-  right: 8rem; /* pegado a la derecha */
-  margin: 0; /* sin márgenes */
-}
-
-.local video {
-  width: 390px; /* ajusta el ancho que quieras */
-  height: auto; /* mantiene proporción */
-  border-radius: 8px; /* opcional */
+/* Contenedor principal */
+.contenido-principal {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+  position: relative;
 }
 .logo {
   position: absolute;
-  top: 1rem;
-  left: 52%;
+  top: -80px;
+  left: 50%;
   transform: translateX(-50%);
-  width: auto; /* que no limite el ancho */
-  max-width: none; /* elimina límites */
 }
 
 .logo img {
-  width: 950px; /* aumenta el tamaño del logo aquí */
-  height: auto; /* mantiene proporción */
+  width: 950px;
+  max-width: 100%;
+  height: auto;
+}
+/* Nosotros */
+
+/* Imagen a la izquierda */
+.foto img {
+  width: 350px;
+  border-radius: 2%;
+}
+.nosotros {
+  width: 600px;
+  font-family: Verdana, Geneva, sans-serif;
+  line-height: 1.5;
+  margin: 0 auto;        /* centrado horizontal por defecto */
+  margin-left: 30px;     /* desplaza un poco hacia la izquierda */
 }
 
+.nosotros h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.nosotros p {
+  font-size: 1rem;      /* 16px */
+  text-align: justify;
+}
+/* Video y leyenda */
+/* Video y leyenda */
+.lado-derecho {
+  display: flex;           
+  align-items: flex-start; 
+  gap: 1.5rem;             
+  margin-top: 2rem;        
+}
+
+.local {
+  position: absolute;   /* el video se queda donde está */
+  top: 10px;            /* altura actual */
+  right: 1px;           /* separación desde el borde derecho */
+  width: 300px;
+}
+
+.local video {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Desktop (default) */
 .leyenda-local {
   position: absolute;
-  right: 100px;
-  top: 860px; /* cuanto más pequeño el valor, más arriba */
-  width: 40%; /* opcional */
+  top: 340px;       /* bajada de 4cm aprox */
+  right: 320px;     /* junto al video */
+  width: 500px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 0.85rem;   /* 13.6px aprox */
+  line-height: 1.5;
+  text-align: justify;
 }
 
-/* Main y wrapper centrados entre header y footer */
-main {
-  margin: 0;
-  padding: 0;
-  min-height: calc(
-    100vh - 8rem - 60px
-  ); /* altura total menos header y footer */
-}
 
 main.servicios {
   display: grid;
@@ -462,6 +531,11 @@ section.categoria4 {
   box-sizing: border-box;
   width: 100%;
 }
+/* Ajustes para Footer */
+.site-footer, .footer-nav ul li a, .footer-contact, .footer-legal, .footer-brand p {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 0.9rem; /* tamaño base para footer desktop */
+}
 
 
 /* Contenedor flex de nav + contacto */
@@ -491,7 +565,6 @@ section.categoria4 {
 
 .footer-nav-wrapper {
   display: flex;
-  flex-direction: column; /* pone nav y social-icons en columna */
   align-items: center;    /* centra horizontalmente todo */
   gap: 1rem;              /* espacio entre nav y social-icons */
 }
@@ -503,6 +576,7 @@ section.categoria4 {
   align-items: center;
   width: 100%;           /* ocupa todo el ancho disponible */
   margin-top: 1rem;
+  margin-left: 6rem;
  
 }
 
@@ -641,12 +715,14 @@ div .footer-contact {
 
 .social-icons {
   display: flex;
-  justify-content: center; /* centra horizontal */
-  gap: 1.5rem;            /* espacio entre iconos */
-  
+  justify-content: center;
+  gap: 2rem;
+  margin-left: 5rem;   /* más a la derecha */
+  padding: 0;
 }
 .social-icons img{
   margin-top: 3rem;
+
 }
 /*_______________________________________________________________________*/
 /*_______________________________________________________________________*/
@@ -673,6 +749,49 @@ div .footer-contact {
   nav ul#menu {
     margin-left: 21.5rem;
     gap: 7rem;
+  }
+
+    .contenido-principal {
+    flex-direction: column;   /* apila los elementos */
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .nosotros {
+    width: 90%;
+    font-size: 0.75rem;
+    margin: 1rem auto;
+  }
+
+  .foto img {
+    width: 45%;
+    margin-top: 1rem;
+    display: block;
+  }
+
+  .local {
+    position: relative;       /* flujo normal para tablet */
+    top: 0;
+    right: 0;
+    width: 80%;
+    margin: 1rem auto;
+    text-align: center;
+  }
+
+  .local video {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .leyenda-local {
+    top: 220px;       /* un poco más abajo para no superponerse */
+    right: 1rem;      /* más cerca del borde derecho */
+    width: 70%;       /* ocupa más espacio */
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  .logo img {
+    width: 600px;
   }
 
 .footer-nav ul {
@@ -802,6 +921,47 @@ EL SUIEINTE
     padding: 2px 6px;
   }
 
+
+.contenido-principal {
+    display: flex;
+    flex-direction: column; /* apilar todo */
+    align-items: center;    /* centrar horizontal */
+    padding: 1rem;
+  }
+  .nosotros {
+    width: 95%;
+    font-size: 0.75rem;
+    text-align: justify;
+    margin: 1rem auto;
+  }
+
+  .foto img {
+    width: 80%;
+    max-width: 300px;
+    margin: 1rem auto;
+  }
+
+
+  .local video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+ .leyenda-local {
+    position: static; /* se apila debajo del video */
+    width: 95%;
+    margin: 1rem auto;  /* centrado y separado */
+    font-size: 0.75rem;
+    line-height: 1.3;
+    text-align: justify;
+  }
+  .logo img {
+    width: 90%;
+    max-width: 250px;
+    margin: 1rem auto;
+    display: block;
+  }
   
   .site-footer {
     padding: 1rem;
@@ -809,7 +969,8 @@ EL SUIEINTE
        text-align: left;
   }
 
-.footer-nav ul {
+
+ .footer-nav ul {
   display: flex;            
   flex-direction: row;      
   justify-content: center;  
@@ -818,7 +979,7 @@ EL SUIEINTE
   padding: 1rem 0;          
   list-style: none;         
   margin: 0;   
-  right: 5rem;             
+           
 }
 
 .footer-nav ul li a {
