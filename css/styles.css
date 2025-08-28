@@ -11,46 +11,14 @@ html, body {
   margin: 0 auto;    /* centra horizontalmente */
   padding: 0;        /* elimina padding por defecto */
   box-sizing: border-box; /* para que padding y border no rompan el ancho */
-   font-family: Verdana, Geneva, sans-serif;
-  font-size: 16px;  /* base desktop */
+  font-family: Verdana, Geneva, sans-serif; /* fuente unificada */
+  font-size: 16px;  /* base para desktop */
   line-height: 1.5;
-  color: #000;
-}
-/* Main y secciones */
-.nosotros,
-.leyenda-local,
-p {
-  font-family: inherit; /* hereda Verdana */
-  font-size: 1rem;      /* 16px */
-  line-height: 1.5;
+  color: #000; /* color de texto principal */
 }
 
 html {
   scroll-padding-top: 120px; /* Ajusta al alto real de tu header fijo */
-}
-/* H1, H2, H3: títulos */
-h1, .site-title, .sveta {
-  font-family: Verdana, Geneva, sans-serif;
-  font-weight: bold;
-  line-height: 1.2;
-}
-
-h2 {
-  font-family: Verdana, Geneva, sans-serif;
-  font-weight: 600;
-  line-height: 1.3;
-}
-
-h3, h4, h5, h6 {
-  font-family: Verdana, Geneva, sans-serif;
-  font-weight: normal;
-}
-
-/* Párrafos y textos generales */
-p, li, span, a, .beauty, .nosotros, .leyenda-local {
-  font-family: Verdana, Geneva, sans-serif;
-  font-weight: normal;
-  line-height: 1.4;
 }
 
 
@@ -178,94 +146,106 @@ iframe {
 /* ===================== PANTALLAS GRANDES ===================== */
 
 
-/* Contenedor principal */
+/* MAIN (alto total menos header y footer) */
 main {
   margin: 0 auto;
-  padding: 0;
-  min-height: calc(100vh - 8rem - 60px); /* altura total menos header y footer */
-  position: relative; /* para los elementos absolutos dentro */
+  padding: 2rem 1rem; /* aire alrededor */
+  min-height: calc(100vh - 8rem - 60px);
   max-width: 1400px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* separación entre bloques dentro */
 }
 
 /* Contenedor principal */
 .contenido-principal {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 2rem;
-  box-sizing: border-box;
-  position: relative;
-}
-.logo {
-  position: absolute;
-  top: -80px;
-  left: 50%;
-  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  width: 100%;
 }
 
+/* Logo */
 .logo img {
-  width: 950px;
-  max-width: 100%;
-  height: auto;
+  max-width: 100px;
+  display: block;
+  margin: 0 auto;
 }
-/* Nosotros */
 
-/* Imagen a la izquierda */
+/* Foto Sveta */
 .foto img {
-  width: 350px;
-  border-radius: 2%;
+
+  max-width: 100%;
+  display: block;
+  margin: 0 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+ 
 }
+
+/* Texto "Nosotros" */
 .nosotros {
-  width: 600px;
-  font-family: Verdana, Geneva, sans-serif;
-  line-height: 1.5;
-  margin: 0 auto;        /* centrado horizontal por defecto */
-  margin-left: 30px;     /* desplaza un poco hacia la izquierda */
+  
+  text-align: left;
+  line-height: 1.1;
+  font-size: 0.9rem;
+  margin-top: -50rem;
+  padding-top: 15rem;
+  margin-left: 2.5rem;
+ 
 }
 
 .nosotros h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }
-.nosotros p {
-  font-size: 1rem;      /* 16px */
-  text-align: justify;
+.nosotros p,
+.leyenda-local p {
+  font-size: 1rem;      /* 16px aprox */
+  line-height: 1.6;     /* aireado */
 }
-/* Video y leyenda */
-/* Video y leyenda */
+
+
+/* Lado derecho (video + leyenda) */
 .lado-derecho {
-  display: flex;           
-  align-items: flex-start; 
-  gap: 1.5rem;             
-  margin-top: 2rem;        
+  grid-column: span 2;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0;                  /* elimina separación automática */
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 2cm;         /* mantiene el empuje hacia abajo */
 }
 
-.local {
-  position: absolute;   /* el video se queda donde está */
-  top: 10px;            /* altura actual */
-  right: 1px;           /* separación desde el borde derecho */
-  width: 300px;
-}
-
+/* Video a la izquierda, tamaño fijo */
 .local video {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
+  width: 490px;            /* tamaño fijo */
+  max-width: 500px;        /* evita que se reduzca */
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  flex-shrink: 0;          /* no se reduce */
+  margin: 0;
 }
 
-/* Desktop (default) */
+/* Leyenda pegada al video */
 .leyenda-local {
-  position: absolute;
-  top: 340px;       /* bajada de 4cm aprox */
-  right: 320px;     /* junto al video */
-  width: 500px;
-  font-family: Verdana, Geneva, sans-serif;
-  font-size: 0.85rem;   /* 13.6px aprox */
-  line-height: 1.5;
-  text-align: justify;
+  width: auto;             /* ocupa el espacio restante */
+  margin-left: 5mm;        /* separación mínima del video */
+  font-size: 1rem;         /* fuerza tamaño de fuente original */
+  line-height: 1.6;        /* fuerza interlineado original */
 }
+
+
+.leyenda-local h2 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;      /* tamaño de título consistente */
+}
+
+
+
+
 
 
 main.servicios {
@@ -751,47 +731,33 @@ div .footer-contact {
     gap: 7rem;
   }
 
-    .contenido-principal {
-    flex-direction: column;   /* apila los elementos */
-    align-items: center;
-    padding: 1rem;
+ .contenido-principal {
+    grid-template-columns: 1fr; /* todo en una columna */
+    gap: 2rem;
   }
 
   .nosotros {
-    width: 90%;
-    font-size: 0.75rem;
-    margin: 1rem auto;
+    grid-column: span 1;
+    text-align: left;
+    font-size: 1rem;
   }
 
-  .foto img {
-    width: 45%;
-    margin-top: 1rem;
-    display: block;
+ .lado-derecho {
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2cm;
   }
 
-  .local {
-    position: relative;       /* flujo normal para tablet */
-    top: 0;
-    right: 0;
-    width: 80%;
-    margin: 1rem auto;
-    text-align: center;
-  }
-
-  .local video {
+  .local video,
+  .leyenda-local {
     width: 100%;
-    max-width: 300px;
+    margin-left: 0;
+    font-size: 0.95rem;     /* ajusta tamaño de fuente para tablets */
+    line-height: 1.5;
   }
 
   .leyenda-local {
-    top: 220px;       /* un poco más abajo para no superponerse */
-    right: 1rem;      /* más cerca del borde derecho */
-    width: 70%;       /* ocupa más espacio */
-    font-size: 0.8rem;
-    line-height: 1.4;
-  }
-  .logo img {
-    width: 600px;
+    margin-top: 1rem;
   }
 
 .footer-nav ul {
@@ -921,46 +887,26 @@ EL SUIEINTE
     padding: 2px 6px;
   }
 
-
-.contenido-principal {
-    display: flex;
-    flex-direction: column; /* apilar todo */
-    align-items: center;    /* centrar horizontal */
-    padding: 1rem;
-  }
-  .nosotros {
-    width: 95%;
-    font-size: 0.75rem;
-    text-align: justify;
-    margin: 1rem auto;
+main {
+    padding: 1rem; /* menos aire en móviles */
   }
 
-  .foto img {
-    width: 80%;
-    max-width: 300px;
-    margin: 1rem auto;
+   .lado-derecho {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2cm;
   }
 
-
-  .local video {
+  .local video,
+  .leyenda-local {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
+    margin-left: 0;
+    font-size: 0.9rem;      /* ajusta tamaño de fuente para móviles */
+    line-height: 1.4;
   }
 
- .leyenda-local {
-    position: static; /* se apila debajo del video */
-    width: 95%;
-    margin: 1rem auto;  /* centrado y separado */
-    font-size: 0.75rem;
-    line-height: 1.3;
-    text-align: justify;
-  }
-  .logo img {
-    width: 90%;
-    max-width: 250px;
-    margin: 1rem auto;
-    display: block;
+  .leyenda-local {
+    margin-top: 0.5rem;
   }
   
   .site-footer {
