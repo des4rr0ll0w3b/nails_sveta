@@ -341,12 +341,23 @@ main.servicios {
   transform: translateY(10px);
   transition: all 0.3s ease;
 }
-/* Acrílicas y Decoración despliegan hacia arriba */
-.servicios section.categoria3 .subcategoria .sublista,
-.servicios section.categoria4 .subcategoria .sublista {
-  top: auto;
-  bottom: 0;
-  transform: translateY(-10px);
+/* La última categoría abre hacia arriba */
+.servicios section:last-child .subcategoria .sublista {
+  top: auto;                  /* quitamos anclaje superior */
+  bottom: 0;                  /* anclamos abajo */
+  transform: translateY(-10px); /* animación hacia arriba */
+}
+/* Acrílicas despliega centrada */
+.servicios section.categoria3 .subcategoria .sublista {
+  top: 50%;                  /* colocamos al 50% del contenedor */
+  bottom: auto;               /* quitamos anclaje inferior */
+  transform: translateY(-50%); /* centramos verticalmente */
+}
+/* Hover en todas las subcategorías */
+.subcategoria:hover .sublista {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 /* Lista de items */
 .subcategoria .sublista ul {
