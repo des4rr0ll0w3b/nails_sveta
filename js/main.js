@@ -98,7 +98,6 @@ async function loadLanguage(lang) {
   }
 }
 
-window.loadLanguage = loadLanguage;  // <--- Esta línea
 
 function initLanguageSystem() {
   const selector = document.getElementById('langSelector');
@@ -133,7 +132,6 @@ async function cargarHeaderFooterYInicializar() {
   .then(res => res.text())
   .then(data => {
     document.getElementById("footer").innerHTML = data;
-
           
         }),
     ]);
@@ -142,8 +140,7 @@ async function cargarHeaderFooterYInicializar() {
     await loadLanguage(lang);
     initLanguageSystem();
     initGaleria();
-    initHamburgerMenus(); // inicializa hamburguesa después de cargar header/footer
-
+   
   } catch (err) {
     console.error("Error inicializando la app:", err);
   }

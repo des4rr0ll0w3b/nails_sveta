@@ -155,6 +155,10 @@ main {
   gap: 3rem; /* separación entre bloques dentro */
 }
 
+/*==========================================================*/
+/*SESIÓN NOSOTROS*/
+/*==========================================================*/
+
 /* Contenedor principal */
 .contenido-principal {
   display: grid;
@@ -252,75 +256,83 @@ main {
   font-size: 1.25rem; /* tamaño de título consistente */
 }
 
+/*==========================================================*/
+/*SESIÓN SERVICIOS*/
+/*==========================================================*/
+
 main.servicios {
   display: grid;
-  gap: 0; /* elimina espacio entre filas del grid */
-  max-width: 500px;
-  margin: 100px auto 0 auto; /* margen superior de 50px */
-
-  font-family: Verdana, Geneva, sans-serif;
-  margin-left: 5rem;
-  font-size: 1.2rem;
+  gap: 2rem; /* espacio entre categorías */
+  max-width: 1000px;
+  margin: 80px auto;
+  font-family: "Segoe UI", Verdana, Geneva, sans-serif;
+  font-size: 1.1rem;
+  color: #222;
+  padding: 0 2rem;
 }
 
-section.categoria1 {
-  margin-top: 4rem;
-  margin-left: 4rem;
+/* Cada categoría */
+.servicios section {
+  position: relative;
+  margin-left: 2rem;
 }
 
-section.categoria2 {
-  margin-top: -7rem;
-  margin-left: 4rem;
+.servicios section h1 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #c2185b;
+  border-left: 5px solid #f48fb1;
+  padding-left: 1rem;
 }
 
-section.categoria3 {
-  margin-top: -7rem;
-  margin-left: 4rem;
-}
-
-section.categoria4 {
-  margin-top: -9rem;
-  margin-left: 4rem;
-}
-/* Subcategorías (resumen + lista) */
+/* Subcategorías */
 .subcategoria {
   position: relative;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 }
 
-/* Título de sublista */
+/* Botón/título de sublista */
 .subcategoria .summary {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  color: #0a0611;
-  border-radius: 6px;
-  transition: background-color 0.2s, color 0.2s;
+  color: #444;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: #f8f8f8;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .subcategoria .summary:hover {
-  color: #d63384;
-  background-color: rgba(200, 200, 200, 0.1);
+  color: #fff;
+  background: linear-gradient(135deg, #d63384, #c2185b);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transform: translateX(4px);
 }
 
 /* Sublista flotante */
 .subcategoria .sublista {
   position: absolute;
   top: 0;
-  left: 53%; /* justo a la derecha de la categoría */
+  left: 105%; /* justo a la derecha */
   display: none;
-  background-color: inherit; /* cambia si quieres transparente */
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  width: 25rem;
-  max-width: calc(100vw - 50px);
-  max-height: 60vh;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  padding: 1rem;
+  width: 28rem;
+  max-width: calc(100vw - 60px);
+  max-height: 65vh;
   overflow-y: auto;
-  z-index: 10;
+  z-index: 20;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
 }
 
-/* Lista de elementos */
+/* Lista de items */
 .subcategoria .sublista ul {
   list-style: none;
   padding: 0;
@@ -328,16 +340,31 @@ section.categoria4 {
 }
 
 .subcategoria .sublista ul li {
-  padding: 2px 0;
-  line-height: 1.4;
+  padding: 0.5rem 0.4rem;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  transition: color 0.2s;
 }
 
-/* Hover para mostrar sublista */
+.subcategoria .sublista ul li:last-child {
+  border-bottom: none;
+}
+
+.subcategoria .sublista ul li:hover {
+  color: #c2185b;
+}
+
+/* Hover para mostrar sublista con animación */
 .subcategoria:hover .sublista {
   display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/*GALERIA DE IMAGENES*/
+
+/*==========================================================*/
+/*SESIÓN GALERIA DE IMAGENES*/
+/*==========================================================*/
 #galeria {
   width: 100%;
   height: 80vh;
@@ -495,11 +522,9 @@ section.categoria4 {
   }
 }
 
-/* Footer */
-
-/* ---------------------- */
-/* Footer Desktop (default) */
-/* ---------------------- */
+/*==========================================================*/
+/*SESIÓN FOOTER GENERAL*/
+/*==========================================================*/
 
 /* Contenedor padre del footer */
 
@@ -708,6 +733,11 @@ div .footer-contact {
 /*****************HEADER************/
 
 @media (min-width: 481px) and (max-width: 769px) {
+
+  /*======================================================*/
+    /*SESION HEADER*/
+ /*======================================================*/
+
   #header .site-header {
     background: lightblue !important;
   }
@@ -722,6 +752,9 @@ div .footer-contact {
     gap: 7rem;
   }
 
+  /*======================================================*/
+    /*SESION NOSOTROS*/
+ /*======================================================*/
   .contenido-principal {
     grid-template-columns: 1fr; /* todo en una columna */
     gap: 2rem;
@@ -751,6 +784,41 @@ div .footer-contact {
     margin-top: 1rem;
   }
 
+  /*======================================================*/
+    /*SESION SERVICIOS*/
+ /*======================================================*/
+
+  main.servicios {
+    max-width: 90%;
+    margin: 60px auto;
+    font-size: 1rem;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .servicios section h1 {
+    font-size: 1.3rem;
+  }
+
+  .subcategoria .summary {
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .subcategoria .sublista {
+    left: 100%;       /* sigue a la derecha */
+    width: 20rem;     /* más compacto */
+    max-height: 50vh; /* menos alto */
+    font-size: 0.9rem;
+  }
+
+  .subcategoria .sublista ul li {
+    font-size: 0.9rem;
+  }
+
+    /*======================================================*/
+    /*SESION FOOTER*/
+ /*======================================================*/
   .footer-nav ul {
     display: flex;
     flex-direction: row;
@@ -825,8 +893,10 @@ div .footer-contact {
 /* ---------------------- */
 @media (max-width: 480px) {
   /*****************HEADER************/
+ /*======================================================*/
+    /*SESION HEADER*/
+ /*======================================================*/
 
-  /* Header */
   #header .site-header {
     height: 70px;
     padding: 0 0.5rem; /* menos padding que en desktop */
@@ -879,6 +949,10 @@ div .footer-contact {
     padding: 1rem; /* menos aire en móviles */
   }
 
+   /*======================================================*/
+    /*SESION NOSOTROS*/
+ /*======================================================*/
+
   .lado-derecho {
     flex-direction: column;
     gap: 1rem;
@@ -897,6 +971,68 @@ div .footer-contact {
     margin-top: 0.5rem;
   }
 
+ /*======================================================*/
+    /*SESION SERVICIOS*/
+ /*======================================================*/
+
+main.servicios {
+    display: block;     /* apilado en columna */
+    max-width: 95%;
+    margin: 40px auto;
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .servicios section {
+    margin-left: 0; /* sin desplazamiento */
+  }
+
+  .servicios section h1 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .subcategoria {
+    margin-bottom: 1rem;
+  }
+
+  .subcategoria .summary {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.6rem;
+    background: #f8f8f8;
+    border-radius: 6px;
+  }
+
+  /* Sublista ahora se despliega debajo, no a la derecha */
+  .subcategoria .sublista {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    max-height: none;
+    box-shadow: none;
+    border: 1px solid #eee;
+    margin-top: 0.4rem;
+    padding: 0.6rem;
+    display: none; /* escondida hasta hover */
+    opacity: 1;    /* sin animación de opacidad */
+    transform: none;
+  }
+
+  .subcategoria:hover .sublista {
+    display: block;
+  }
+
+  .subcategoria .sublista ul li {
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #f1f1f1;
+  }
+   /*======================================================*/
+    /*SESION FOOTER*/
+ /*======================================================*/
   .site-footer {
     padding: 1rem;
     font-size: 0.8rem;
