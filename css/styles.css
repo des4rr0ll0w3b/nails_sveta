@@ -341,7 +341,13 @@ main.servicios {
   transform: translateY(10px);
   transition: all 0.3s ease;
 }
-
+/* Acrílicas y Decoración despliegan hacia arriba */
+.servicios section.categoria3 .subcategoria .sublista,
+.servicios section.categoria4 .subcategoria .sublista {
+  top: auto;
+  bottom: 0;
+  transform: translateY(-10px);
+}
 /* Lista de items */
 .subcategoria .sublista ul {
   list-style: none;
