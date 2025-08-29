@@ -261,20 +261,28 @@ main {
 /*==========================================================*/
 
 main.servicios {
-  display: grid;
-  gap: 2rem; /* espacio entre categorías */
+  display: flex;
+  gap: 4rem; /* espacio entre categorías */
   max-width: 1000px;
-  margin: 80px auto;
   font-family: "Segoe UI", Verdana, Geneva, sans-serif;
   font-size: 1.1rem;
   color: #222;
-  padding: 0 2rem;
+  margin: 0;
+  margin-top: 5rem;
+  
+}
+.summary,
+.sublista {
+  display: inline-block;    /* para que estén en línea */
+  vertical-align: middle;   /* alineación */
+  margin: 0;                /* quita márgenes por defecto */
 }
 
 /* Cada categoría */
 .servicios section {
-  position: relative;
-  margin-left: 2rem;
+  position:sticky; 
+  margin-left: 3rem;
+ 
 }
 
 .servicios section h1 {
@@ -289,8 +297,9 @@ main.servicios {
 /* Subcategorías */
 .subcategoria {
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 0.1rem;
 }
+
 
 /* Botón/título de sublista */
 .subcategoria .summary {
@@ -298,7 +307,7 @@ main.servicios {
   font-weight: 600;
   cursor: pointer;
   color: #444;
-  padding: 0.6rem 1rem;
+  padding: 0.1rem 0.1rem;
   border-radius: 8px;
   background: #f8f8f8;
   transition: all 0.25s ease;
@@ -312,11 +321,12 @@ main.servicios {
   transform: translateX(4px);
 }
 
+
 /* Sublista flotante */
 .subcategoria .sublista {
   position: absolute;
   top: 0;
-  left: 105%; /* justo a la derecha */
+  left: 25%; /* justo a la derecha */
   display: none;
   background: #fff;
   border-radius: 10px;
@@ -1004,6 +1014,20 @@ main.servicios {
     background: #f8f8f8;
     border-radius: 6px;
   }
+  section.categoria1,
+  section.categoria2,
+  section.categoria3,
+  section.categoria4 {
+    margin-bottom: 0.5rem !important; /* fuerza margen inferior pequeño */
+    padding-bottom: 0 !important;     /* elimina relleno extra */
+  }
+
+  section.categoria1 h1,
+  section.categoria2 h1,
+  section.categoria3 h1,
+  section.categoria4 h1 {
+    margin-bottom: 0.3rem !important; /* título más pegado al contenido */
+  }
 
   /* Sublista ahora se despliega debajo, no a la derecha */
   .subcategoria .sublista {
@@ -1030,6 +1054,7 @@ main.servicios {
     padding: 0.4rem 0;
     border-bottom: 1px solid #f1f1f1;
   }
+  
    /*======================================================*/
     /*SESION FOOTER*/
  /*======================================================*/
